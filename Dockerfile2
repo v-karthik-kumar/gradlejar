@@ -1,0 +1,9 @@
+FROM public.ecr.aws/lambda/java:11
+
+
+WORKDIR /app
+# Copy the Java application
+COPY build/libs/*.jar /app/spring-boot-application.jar
+ENTRYPOINT ["java", "-jar", "spring-boot-application.jar"]
+CMD ["com.example.MyLambdaHandler::handleRequest"]
+
